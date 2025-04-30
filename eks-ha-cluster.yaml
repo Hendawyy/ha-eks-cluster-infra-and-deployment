@@ -1,0 +1,21 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: HA-eks-cluster
+  region: us-east-1
+  version: "1.32"
+
+iam:
+  serviceRoleARN: arn:aws:iam::484907516017:role/3-tier-eks-cluster-role
+
+vpc:
+  id: vpc-079ef5d3f5ff1013e
+  subnets:
+    private:
+      us-east-1a:
+        id: subnet-0511597870926bae6
+      us-east-1b:
+        id: subnet-05800bb62ae360b42
+      us-east-1c:
+        id: subnet-078a32c117afeb143

@@ -1,0 +1,23 @@
+# This Command will create a LoadBalancer service for the NGINX Ingress Controller in the ingress-nginx namespace.
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/aws/deploy.yaml
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: ingress-nginx
+# ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  - name: https
+    port: 443
+    targetPort: https
